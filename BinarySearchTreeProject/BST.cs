@@ -6,35 +6,43 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTreeProject
 {
- 
-        public class BST
+
+    public class BST
+    {
+        TreeNode root;
+        int treeSize = 0;
+        public void Insert(int data)
         {
-            TreeNode root;
-            int treeSize = 0;
-            public void Insert(int data)
+            if (root == null)
             {
-                if (root == null)
-                {
-                    root = new TreeNode(data);
-                    treeSize++;
-                }
-                else
-                {
-                    root.Insert(data);
-                    treeSize++;
-                }
+                root = new TreeNode(data);
+                treeSize++;
             }
-            public void Display()
+            else
             {
-                if (root == null)
-                {
-                    Console.WriteLine("Binary Search Tree is Empty");
-                }
-                else
-                {
-                    root.InOrderTraversal();
-                }
+                root.Insert(data);
+                treeSize++;
             }
         }
-    
+        public int Size()
+        {
+            if (root == null)
+            {
+                Console.WriteLine("Binary Search Tree is Empty");
+            }
+            return treeSize;
+        }
+        public void Display()
+        {
+            if (root == null)
+            {
+                Console.WriteLine("Binary Search Tree is Empty");
+            }
+            else
+            {
+                root.InOrderTraversal();
+            }
+        }
+    }
+
 }
